@@ -1,1 +1,37 @@
 @import "tailwindcss";
+
+@layer base;
+
+@layer base {
+    :root {
+        --primary-color: #3498db;
+        --secondary-color: #e74c3c;
+        --text-color: #ececec;
+        --background-color: #131313;
+    }
+
+    body {
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+
+    label {
+        @apply mt-4;
+    }
+
+    label input,
+    label select {
+        @apply w-full border-white border-2 rounded-md mt-2 p-2;
+    }
+
+    option,
+    option:hover {
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }
+
+    button {
+        @apply mt-4 p-2;
+        background: var(--primary-color);
+    }
+}

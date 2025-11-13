@@ -2,8 +2,18 @@
 import Layout from "../layouts/Layout.astro";
 
 import "../styles/global.css";
+import NewDebt from "../components/NewDebt.tsx";
+import DebtList from "../components/DebtList.tsx";
 ---
 
 <Layout>
-    <h1 class="text-2xl">Debt Repayment Calculator</h1>
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-4">
+        <aside>
+            <NewDebt client:load />
+        </aside>
+
+        <main>
+            <DebtList client:load />
+        </main>
+    </div>
 </Layout>
