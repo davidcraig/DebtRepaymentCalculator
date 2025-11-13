@@ -1,16 +1,7 @@
 import useDebts from "../stores/debts";
 import ucFirst from "../functions/ucFirst";
 
-function RenderDebtType(debtType: string) {
-  return (
-    <>
-      {debtType == "priority" && <span>⚡</span>}
-      {ucFirst(debtType)}
-    </>
-  );
-}
-
-function DebtList() {
+function DebtSchedule() {
   const { debts } = useDebts();
 
   return (
@@ -36,7 +27,7 @@ function DebtList() {
                 <td>{debt.name}</td>
                 <td>{debt.balance}</td>
                 <td>{debt.monthlyMinimumPayment}</td>
-                <td>{RenderDebtType(debt.type)}</td>
+                <td>{ucFirst(debt.type)}</td>
               </tr>
             ))}
           </tbody>
@@ -46,4 +37,4 @@ function DebtList() {
   );
 }
 
-export default DebtList;
+export default DebtSchedule;

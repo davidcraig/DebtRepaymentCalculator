@@ -35,6 +35,10 @@
         background: var(--primary-color);
     }
 
+    thead tr {
+        @apply border-b;
+    }
+
     th {
         @apply text-left;
     }
