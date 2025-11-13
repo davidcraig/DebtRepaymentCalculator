@@ -5,6 +5,7 @@ import "../styles/global.css";
 import NewDebt from "../components/NewDebt.tsx";
 import DebtList from "../components/DebtList.tsx";
 import DebtSchedule from "../components/DebtSchedule.tsx";
+import DebtSummary from "../components/DebtSummary.tsx";
 ---
 
 <Layout>
@@ -14,6 +15,8 @@ import DebtSchedule from "../components/DebtSchedule.tsx";
         </aside>
 
         <main>
+            <DebtSummary client:load />
+
             <h2 class="text-2xl my-4">Debt List</h2>
             <DebtList client:load />
 

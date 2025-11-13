@@ -7,6 +7,8 @@ interface DebtState {
   debts: Debt[];
   addDebt: (newDebt: Debt) => void;
   removeDebt: (id: uuid) => void;
+  getMaxMonths: () => number;
+  getTotalBalance: () => number;
 }
 
 const useDebts = create<DebtState>()(
@@ -19,6 +21,22 @@ const useDebts = create<DebtState>()(
         set((state) => ({
           debts: state.debts.filter((debt) => debt.id !== id),
         })),
+      getMaxMonths: () => {
+        const maxMonths = Math.max(
+          ...useDebts
+            .getState()
+            .debts.map((debt) =>
+              Math.ceil(debt.balance / debt.monthlyMinimumPayment),
+            ),
+        );
+        return maxMonths > 0 ? maxMonths : 1;
+      },
+      getTotalBalance: () => {
+        const totalBalance = useDebts
+          .getState()
+          .debts.reduce((acc, debt) => acc + debt.balance, 0);
+        return totalBalance;
+      },
     }),
     {
       name: "debts",
