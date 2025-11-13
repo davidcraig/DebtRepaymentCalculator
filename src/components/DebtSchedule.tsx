@@ -1,6 +1,8 @@
 import useDebts from "../stores/debts";
 import ucFirst from "../functions/ucFirst";
 
+import RenderCurrency from "./RenderCurrency";
+
 const nextMonth = (date: Date) => {
   const next = new Date(date);
   next.setMonth(next.getMonth() + 1);
@@ -41,15 +43,14 @@ function DebtSchedule() {
       <tr key={i}>
         <td>{renderMonthName(month)}</td>
         {mappedDebts.map((debt) => {
-          return (
-            <td>
-              {debt.newBalance > 0
-                ? debt.newBalance > debt.monthlyMinimumPayment
-                  ? (debt.newBalance -= debt.monthlyMinimumPayment)
-                  : (debt.newBalance = 0)
-                : ""}
-            </td>
-          );
+          const newBalance: number =
+            debt.newBalance > 0
+              ? debt.newBalance > debt.monthlyMinimumPayment
+                ? (debt.newBalance -= debt.monthlyMinimumPayment)
+                : (debt.newBalance = 0)
+              : 0;
+
+          return <td>{RenderCurrency(newBalance)}</td>;
         })}
       </tr>,
     );

@@ -1,5 +1,6 @@
 import useDebts from "../stores/debts";
 import ucFirst from "../functions/ucFirst";
+import { RenderCurrency } from "./RenderCurrency";
 
 function RenderDebtType(debtType: string) {
   return (
@@ -34,8 +35,8 @@ function DebtList() {
             {debts.map((debt) => (
               <tr key={debt.id}>
                 <td>{debt.name}</td>
-                <td>{debt.balance}</td>
-                <td>{debt.monthlyMinimumPayment}</td>
+                <td>{RenderCurrency(debt.balance)}</td>
+                <td>{RenderCurrency(debt.monthlyMinimumPayment)}</td>
                 <td>{RenderDebtType(debt.type)}</td>
               </tr>
             ))}
