@@ -34,4 +34,17 @@
         @apply mt-4 p-2;
         background: var(--primary-color);
     }
+
+    th {
+        @apply text-left;
+    }
+
+    td {
+        @apply text-sm leading-none font-normal;
+    }
+
+    th,
+    td {
+        @apply px-4 py-2;
+    }
 }

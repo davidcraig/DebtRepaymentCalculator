@@ -35,17 +35,22 @@ export function NewDebt() {
 
       <label>
         Balance:
-        <input type="number" name="amount" required />
+        <input type="number" name="amount" step="0.01" required />
       </label>
 
       <label>
         Interest Rate:
-        <input type="number" name="interestRate" required />
+        <input type="number" step="0.01" name="interestRate" required />
       </label>
 
       <label>
         Monthly Minimum Payment:
-        <input type="number" name="monthlyMinimumPayment" required />
+        <input
+          type="number"
+          step="0.01"
+          name="monthlyMinimumPayment"
+          required
+        />
       </label>
 
       <label>

@@ -1,5 +1,5 @@
 export const uuid = () => {
-  return Crypto.randomUUID();
+  return crypto.randomUUID();
 };
 
 export default uuid;
